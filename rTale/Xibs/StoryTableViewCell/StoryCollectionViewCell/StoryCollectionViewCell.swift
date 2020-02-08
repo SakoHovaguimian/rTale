@@ -30,6 +30,8 @@ class StoryCollectionViewCell: UICollectionViewCell {
     private func configureViews() {
         self.clipsToBounds = true
         self.roundCorners(.allCorners, radius: 15)
+        
+        
     }
 
 }
