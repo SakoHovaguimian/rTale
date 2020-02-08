@@ -41,11 +41,6 @@ class HomeViewModel {
         self.stories.remove(at: index)
     }
     
-    public func getGenreAt(_ index: Int) -> [Story] {
-        let genre = Genre.allCases[index]
-        return self.stories.filter({ $0.genre == genre})
-    }
-    
     public func handleSettingsPageTapped(index: Int) {
         self.settingDelegate.pushSettingsPage(index: index)
     }
@@ -77,5 +72,5 @@ class HomeViewModel {
         ])
         
     }
-    
+
 }

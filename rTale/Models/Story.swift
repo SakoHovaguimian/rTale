@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Genre: String, CaseIterable, Codable {
+enum Genre: Int, CaseIterable, Codable {
     case action, fantasy, sliceOfLife, scienceFiction
 }
 
