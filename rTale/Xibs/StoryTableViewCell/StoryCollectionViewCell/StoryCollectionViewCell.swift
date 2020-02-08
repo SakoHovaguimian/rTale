@@ -12,13 +12,14 @@ class StoryCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "StoryCollectionViewCell"
     
-    public var title: String? {
+    public var story: Story? {
         didSet {
-            self.titleLabel.text = self.title
+            self.configure()
         }
     }
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var storyImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +28,19 @@ class StoryCollectionViewCell: UICollectionViewCell {
         
     }
     
+    private func configure() {
+        
+        guard let story = self.story else { return }
+        
+        self.titleLabel.text = story.title
+        self.storyImageView.image = UIImage(named: story.imageURL)
+        
+    }
+    
     private func configureViews() {
+        
         self.clipsToBounds = true
         self.roundCorners(.allCorners, radius: 15)
-        
         
     }
 
