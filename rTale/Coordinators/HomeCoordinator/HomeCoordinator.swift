@@ -22,10 +22,10 @@ class HomeCoordinator: Coordinator {
     func start() {
         
         let viewModel = HomeViewModel()
+        viewModel.settingDelegate = self
+        viewModel.storyDelegate = self
         
         let homeVC = HomeViewController(viewModel: viewModel)
-        homeVC.storyDelegate = self
-        homeVC.settingDelegate = self
         
         self.navigationController.modalPresentationStyle = .fullScreen
         self.navigationController.navigationBar.isHidden = true
@@ -37,7 +37,7 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: PushSettingsPageDelegate {
     
-    func pushSettingsPage(_ vc: HomeViewController, index: Int) {
+    func pushSettingsPage(index: Int) {
         
         let testVC = UIViewController()
         testVC.view.backgroundColor = index == 0 ? .purplishBlack : .secondarySystemGroupedBackground
@@ -50,7 +50,7 @@ extension HomeCoordinator: PushSettingsPageDelegate {
 
 extension HomeCoordinator: PushStoryPageDelegate {
     
-    func pushStoryPage(_ vc: HomeViewController, story: Story) {
+    func pushStoryPage(story: Story) {
         
         let testVC = UIViewController()
         testVC.view.backgroundColor = .regalPurple

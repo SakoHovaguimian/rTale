@@ -9,37 +9,14 @@
 import UIKit
 import Animo
 
-protocol PushSettingsPageDelegate: class {
-    func pushSettingsPage(_ vc: HomeViewController, index: Int)
-}
-
-protocol PushStoryPageDelegate: class {
-    func pushStoryPage(_ vc: HomeViewController, story: Story)
-}
-
 class HomeViewController: UIViewController, Storyboarded {
     
     //MARK:- Properties
-    
-    weak var settingDelegate: PushSettingsPageDelegate!
-    weak var storyDelegate: PushStoryPageDelegate!
     
     private var homeViewModel: HomeViewModel
     private var homeTableView: UITableView?
     
     //MARK:- Views
-    
-//    private let settingsButton: UIButton = {
-//
-//        let button = UIButton(type: .system)
-//        button.setTitle("Settings", for: .normal)
-//        button.setTitleColor(.white, for: .normal)
-//        button.backgroundColor = .black
-//        button.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
-//
-//        return button
-//
-//    }()
     
     private lazy var headerView: UIView = {
     
@@ -88,12 +65,6 @@ class HomeViewController: UIViewController, Storyboarded {
         
         //HomeViewModel
         self.homeViewModel.generateTestData()
-        
-//        //SettingsButton
-//        self.view.addSubview(self.settingsButton)
-//        self.settingsButton.centerX(inView: self.view)
-//        self.settingsButton.centerY(inView: self.view)
-//        self.settingsButton.anchor(width: 100, height: 50)
         
         //HeaderView
         self.view.addSubview(self.headerView)
@@ -150,10 +121,8 @@ class HomeViewController: UIViewController, Storyboarded {
     //MARK:- Objc Functions
     
     @objc private func settingsButtonTapped(sender: UIButton) {
-        logSuccess("\(sender.tag)")
-        self.settingDelegate.pushSettingsPage(self, index: sender.tag)
+        self.homeViewModel.handleSettingsPageTapped(index: sender.tag)
     }
-    
 }
 
 //MARK:- TableView Delegate & DataSource
@@ -184,7 +153,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return HomeViewModel.storyCellHeight
     }
     
 }
@@ -194,7 +163,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: PassChosenStoryDelegate {
     
     func passChosenStory(_ story: Story) {
-        self.storyDelegate.pushStoryPage(self, story: story)
+        self.homeViewModel.handleStoryTapped(story: story)
     }
 
 }

@@ -65,7 +65,7 @@ extension StoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
         if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.identifier, for: indexPath) as? StoryCollectionViewCell {
 
-            cell.title = self.stories[indexPath.row].title
+            cell.story = self.stories[indexPath.row]
     
             return cell
         }
