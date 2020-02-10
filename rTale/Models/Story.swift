@@ -19,6 +19,7 @@ class Story: Codable {
     var author: String
     var genre: Genre
     var imageURL: String
+    var scenes = [Scene]()
     
     init(id: Int, title: String, author: String, genre: Genre, imageURL: String) {
         self.id = id
@@ -27,5 +28,6 @@ class Story: Codable {
         self.genre = genre
         self.imageURL = imageURL
     }
+
     
 }

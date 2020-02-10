@@ -11,6 +11,6 @@ import UIKit
 
 extension UIColor {
     
-    static let navyGreen = setColor(r: 12.0, g: 12.0, b: 12.0)
+    static let backgroundColor = setColor(r: 12.0, g: 12.0, b: 12.0)
     
 }

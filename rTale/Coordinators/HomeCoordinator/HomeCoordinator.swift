@@ -9,7 +9,13 @@
 import UIKit
 import Animo
 
+protocol PresentStoryCoordDelegate: class {
+    func presentStoryPage(story: Story)
+}
+
 class HomeCoordinator: Coordinator {
+    
+    weak var delegate: PresentStoryCoordDelegate!
     
     var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
@@ -51,12 +57,7 @@ extension HomeCoordinator: PushSettingsPageDelegate {
 extension HomeCoordinator: PushStoryPageDelegate {
     
     func pushStoryPage(story: Story) {
-        
-        let testVC = UIViewController()
-        testVC.view.backgroundColor = .regalPurple
-        
-        self.navigationController.present(testVC, animated: true)
-        
+        self.delegate.presentStoryPage(story: story)
     }
     
 }
