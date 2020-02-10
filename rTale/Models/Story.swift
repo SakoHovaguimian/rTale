@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Animo
+
+typealias Outcome = (Scene?, Bool?)
 
 enum Genre: Int, CaseIterable, Codable {
     case action, fantasy, sliceOfLife, scienceFiction
@@ -14,20 +17,55 @@ enum Genre: Int, CaseIterable, Codable {
 
 class Story: Codable {
     
-    var id: Int
+    var storyID: String
     var title: String
     var author: String
     var genre: Genre
     var imageURL: String
     var scenes = [Scene]()
     
-    init(id: Int, title: String, author: String, genre: Genre, imageURL: String) {
-        self.id = id
+    init(storyID: String, title: String, author: String, genre: Genre, imageURL: String) {
+        self.storyID = storyID
         self.title = title
         self.author = author
         self.genre = genre
         self.imageURL = imageURL
     }
-
+    
+    private enum CodingKeys: String, CodingKey {
+        case storyID = "story_id"
+        case title
+        case author
+        case genre
+        case imageURL
+        case scenes
+    }
+    
+    func nextPartOfStory(_ nextScene: Scene, filterBy: Int) -> Outcome {
+        
+        print(nextScene.choices![filterBy])
+        
+        guard let nextScene = nextScene.choices?[filterBy] else { return (nil, nil) }
+        
+        if nextScene.deadEnd == true {
+            logMessage("💀💀💀💀💀💀 DEAD END")
+            return (nil, true)
+        }
+        
+        guard let destinationID = nextScene.destinationSceneId else { return (nil, nil) }
+        
+        print(destinationID)
+        
+        let path = self.scenes.contains(where: { $0.id == destinationID })
+        
+        print(self.scenes.contains(where: { $0.id == destinationID }))
+        
+        if path {
+            return (self.scenes.filter({ $0.id == destinationID })[0], nil)
+        }
+        
+        return (nil, nil)
+        
+    }
     
 }

@@ -24,9 +24,10 @@ class StoryViewModel {
     
     private var story: Story!
     
-    private var index = 0
     private var runloop = RunLoop.main
     private var inGuard = false
+    
+    public var currentScene: Scene?
     
     //MARK:- Helper Functions
     
@@ -38,38 +39,22 @@ class StoryViewModel {
         self.dimissDelegate.dimissStoryVC()
     }
     
-    public func nextPartOfStoryTestData(_ index: Int) -> String {
+    func runloop(label: UITextView, senderID: Int) {
         
-        var text = ""
-        
-        switch index {
-            case 0: text = "What’s going on?"
-            case 1: text = "How does everything feel so numb, yet so real."
-            case 2: text = "Where am I? Am I floating?"
-            case 3: text = "What’s this feeling? Someone’s holding me?"
-            case 4: text = "It’s Like a warm hug. Like when I was younger"
-            case 5: text = "This has to be a dream; I know you’re not with us anymore."
-            case 6: text = "I need to find a way out!"
-            default: text = "THE END"
+        if self.currentScene == nil {
+            self.currentScene = self.story.scenes[0]
+        } else {
+            self.currentScene = self.story.nextPartOfStory(self.currentScene!, filterBy: senderID).0
         }
-        return text
-    }
-    
-     func runloop(label: UITextView) {
         
-        let string = self.nextPartOfStoryTestData(self.index)
+        let text = self.currentScene?.text
             
         guard self.inGuard == false else { return }
         
         self.inGuard = true
         
-        self.runloop.cancelPerformSelectors(withTarget: self.runloop)
-        self.runloop.cancelPerformSelectors(withTarget: self)
-        
-        self.index += 1
-        
         label.text = ""
-        outerLoop: for i in string {
+        outerLoop: for i in text! {
 
             label.text! += "\(i)"
             

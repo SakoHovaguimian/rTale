@@ -62,7 +62,7 @@ class StoryViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         self.configureViews()
-        self.view.backgroundColor = .black
+        self.configureStory()
     }
     
     required init?(coder: NSCoder) {
@@ -76,15 +76,7 @@ class StoryViewController: UIViewController, Storyboarded {
     }
     
     @objc private func nextPartOfStoryTapped(sender: UIButton) {
-        
-        //This will probabaly return a scene object and we can dynamically update the choies
-        //Have number of choices accept a scene and loop over in it's own function
-        self.storyViewModel.runloop(label: self.storyLabel)
-        self.numnberOfChoices(choices: [
-            "Turn Left",
-            "Turn Right",
-            "Stay Where You Are"
-        ])
+        self.configureStory(senderID: sender.tag)
     }
     
     //MARK:- Helper Functions
@@ -116,15 +108,31 @@ class StoryViewController: UIViewController, Storyboarded {
         
         self.choicesStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
         
+        var tag = 0
+        
         for i in choices {
             
             let choiceButton = ChoiceButton(text: i)
+            choiceButton.tag = tag
             choiceButton.setTitleColor(.black, for: .normal)
             choiceButton.addTarget(self, action: #selector(self.nextPartOfStoryTapped(sender:)), for: .touchUpInside)
             self.choicesStackView.addArrangedSubview(choiceButton)
+            
+            tag += 1
                         
         }
 
+    }
+    
+    private func configureStory(senderID: Int = 0) {
+        
+        self.storyViewModel.runloop(label: self.storyLabel, senderID: senderID)
+               
+        if let choices = self.storyViewModel.currentScene?.choices?.map({ $0.text}) {
+           
+           self.numnberOfChoices(choices: choices)
+           
+       }
     }
     
 }

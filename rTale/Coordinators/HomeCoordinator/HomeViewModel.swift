@@ -53,21 +53,21 @@ class HomeViewModel {
         
         self.stories.append(contentsOf: [
         
-            Story(id: 1, title: "The Paradox", author: "Sako Hovaguimian", genre: .scienceFiction, imageURL: "science"),
-            Story(id: 2, title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 3, title: "LLC Destruction", author: "KC Gundserson", genre: .sliceOfLife, imageURL: "sliceOfLife"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .scienceFiction, imageURL: "science"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .sliceOfLife, imageURL: "sliceOfLife"),
             
-            Story(id: 4, title: "The Paradox", author: "Sako Hovaguimian", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 5, title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 6, title: "LLC Destruction", author: "KC Gundserson", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .fantasy, imageURL: "fantasy"),
             
-            Story(id: 7, title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
-            Story(id: 8, title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
-            Story(id: 9, title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action"),
             
-            Story(id: 10, title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
-            Story(id: 11, title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
-            Story(id: 12, title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action")
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action")
             
         ])
         
