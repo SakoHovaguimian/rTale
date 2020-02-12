@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK:- Protocols
+
 protocol PushSettingsPageDelegate: class {
     func pushSettingsPage(index: Int)
 }
@@ -25,13 +27,9 @@ class HomeViewModel {
     
     static var storyCellHeight: CGFloat = 160.0
     
-    private var stories = [Story]()
+    private(set) var stories = [Story]()
     
     //MARK:- Helper Functions
-    
-    public func getStories() -> [Story] {
-        return self.stories
-    }
     
     public func add(_ story: Story) {
         self.stories.append(story)
@@ -39,11 +37,6 @@ class HomeViewModel {
     
     public func remove(at index: Int) {
         self.stories.remove(at: index)
-    }
-    
-    public func getGenreAt(_ index: Int) -> [Story] {
-        let genre = Genre.allCases[index]
-        return self.stories.filter({ $0.genre == genre})
     }
     
     public func handleSettingsPageTapped(index: Int) {
@@ -58,24 +51,24 @@ class HomeViewModel {
         
         self.stories.append(contentsOf: [
         
-            Story(id: 1, title: "The Paradox", author: "Sako Hovaguimian", genre: .scienceFiction, imageURL: "science"),
-            Story(id: 2, title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 3, title: "LLC Destruction", author: "KC Gundserson", genre: .sliceOfLife, imageURL: "sliceOfLife"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .scienceFiction, imageURL: "science"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .sliceOfLife, imageURL: "sliceOfLife"),
             
-            Story(id: 1, title: "The Paradox", author: "Sako Hovaguimian", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 2, title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
-            Story(id: 3, title: "LLC Destruction", author: "KC Gundserson", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .fantasy, imageURL: "fantasy"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .fantasy, imageURL: "fantasy"),
             
-            Story(id: 1, title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
-            Story(id: 2, title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
-            Story(id: 3, title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action"),
             
-            Story(id: 1, title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
-            Story(id: 2, title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
-            Story(id: 3, title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action")
+            Story(storyID: "story_1", title: "The Paradox", author: "Sako Hovaguimian", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "Solomon's Box", author: "Mitch Treece", genre: .action, imageURL: "action"),
+            Story(storyID: "story_1", title: "LLC Destruction", author: "KC Gundserson", genre: .action, imageURL: "action")
             
         ])
         
     }
-    
+
 }

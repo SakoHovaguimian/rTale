@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>imageURL</key>
+	<string>Something.com</string>
+	<key>genre</key>
+	<integer>0</integer>
+	<key>author</key>
+	<string>Sako Hovaguimian</string>
+	<key>title</key>
+	<string>A Story</string>
+	<key>story_id</key>
+	<string></string>
+	<key>scenes</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>1</string>
+			<key>text</key>
+			<string>Welcome, Let me know when you&apos;re ready and we&apos;ll get started on the journey</string>
+			<key>choices</key>
+			<array>
+				<dict>
+					<key>health</key>
+					<integer>50</integer>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Another Option For Testing</string>
+					<key>scene_id</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Play the game!</string>
+					<key>scene_id</key>
+					<string>2</string>
+				</dict>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Let&apos;s get this going!</string>
+					<key>scene_id</key>
+					<string>3</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>2</string>
+			<key>text</key>
+			<string>If you came here looking for tales of dragons and old gods, you&apos;re in the right place, but you will be lost in the labyrinth that is my mind. Here we go. We&apos;re diving in. </string>
+			<key>choices</key>
+			<array>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Dragons?</string>
+					<key>scene_id</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Gods?</string>
+					<key>scene_id</key>
+					<string>5</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>3</string>
+			<key>text</key>
+			<string>If you came here looking for tales of dragons and old gods, you&apos;re in the right place, but you will be lost in the labyrinth that is my mind. Here we go. We&apos;re diving in. </string>
+			<key>choices</key>
+			<array>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Dragons?</string>
+					<key>scene_id</key>
+					<string>4</string>
+				</dict>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Gods?</string>
+					<key>scene_id</key>
+					<string>5</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

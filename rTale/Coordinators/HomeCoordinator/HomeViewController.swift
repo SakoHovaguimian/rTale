@@ -139,11 +139,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        guard let genre = Genre(rawValue: indexPath.section) else { return UITableViewCell() }
+        
+        let stories = self.homeViewModel.stories.filter { $0.genre == genre }
+        
         if let cell = self.homeTableView?.dequeueReusableCell(withIdentifier: StoryTableViewCell.identifier, for: indexPath) as? StoryTableViewCell {
-            
-            let genreStories = self.homeViewModel.getGenreAt(indexPath.section)
-            
-            cell.stories = genreStories
+
+            cell.stories = stories
             cell.delegate = self
             return cell
             
