@@ -17,23 +17,6 @@ class StoryViewController: UIViewController, Storyboarded {
     
     //MARK:- Views
     
-    private lazy var storyView: UIView = {
-        
-        let myView = UIView()
-        myView.backgroundColor = .eggShell
-        myView.clipsToBounds = true
-        myView.layer.cornerRadius = 23
-        
-        myView.addSubview(self.storyLabel)
-        
-        self.storyLabel.centerX(inView: myView)
-        self.storyLabel.anchor(top: myView.topAnchor, paddingTop: 20, width: 300)
-        
-        
-        return myView
-            
-    }()
-    
     private var storyLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -107,6 +90,28 @@ class StoryViewController: UIViewController, Storyboarded {
         label.textColor = .black
         label.text = "2"
         return label
+    }()
+    
+    private lazy var storyView: UIView = {
+        
+        let myView = UIView()
+        myView.backgroundColor = .eggShell
+        myView.clipsToBounds = true
+        myView.layer.cornerRadius = 23
+        
+        myView.addSubview(self.storyLabel)
+        
+        self.storyLabel.centerX(inView: myView)
+        self.storyLabel.anchor(top: myView.topAnchor,
+                               left: myView.leftAnchor,
+                               right: myView.rightAnchor,
+                               paddingTop: 20,
+                               paddingLeft: 20,
+                               paddingRight: 20)
+        
+        
+        return myView
+            
     }()
     
     private lazy var statusBarView: UIView = {
