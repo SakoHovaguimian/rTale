@@ -141,7 +141,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let genre = Genre(rawValue: indexPath.section) else { return UITableViewCell() }
         
-        let stories = self.homeViewModel.getStories().filter { $0.genre == genre }
+        let stories = self.homeViewModel.stories.filter { $0.genre == genre }
         
         if let cell = self.homeTableView?.dequeueReusableCell(withIdentifier: StoryTableViewCell.identifier, for: indexPath) as? StoryTableViewCell {
 

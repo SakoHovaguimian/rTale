@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK:- Protocols
+
 protocol PushSettingsPageDelegate: class {
     func pushSettingsPage(index: Int)
 }
@@ -25,13 +27,9 @@ class HomeViewModel {
     
     static var storyCellHeight: CGFloat = 160.0
     
-    private var stories = [Story]()
+    private(set) var stories = [Story]()
     
     //MARK:- Helper Functions
-    
-    public func getStories() -> [Story] {
-        return self.stories
-    }
     
     public func add(_ story: Story) {
         self.stories.append(story)

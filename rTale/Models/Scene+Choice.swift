@@ -21,12 +21,14 @@ struct Choice: Codable {
     var text: String
     var destinationSceneId: String?
     var deadEnd: Bool?
+    var health: Int?
     
     private enum CodingKeys: String, CodingKey {
         
         case text
         case destinationSceneId = "scene_id"
         case deadEnd
+        case health
         
     }
     

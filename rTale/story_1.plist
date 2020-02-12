@@ -16,26 +16,36 @@
 	<array>
 		<dict>
 			<key>id</key>
-			<string>3</string>
+			<string>1</string>
 			<key>text</key>
-			<string>This is the rude response</string>
+			<string>Welcome, Let me know when you&apos;re ready and we&apos;ll get started on the journey</string>
 			<key>choices</key>
 			<array>
 				<dict>
+					<key>health</key>
+					<integer>50</integer>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>Go fuck yourself</string>
+					<string>Another Option For Testing</string>
 					<key>scene_id</key>
-					<string>8</string>
+					<string>2</string>
 				</dict>
 				<dict>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>I hope you die</string>
+					<string>Play the game!</string>
 					<key>scene_id</key>
 					<string>2</string>
+				</dict>
+				<dict>
+					<key>deadEnd</key>
+					<false/>
+					<key>text</key>
+					<string>Let&apos;s get this going!</string>
+					<key>scene_id</key>
+					<string>3</string>
 				</dict>
 			</array>
 		</dict>
@@ -43,107 +53,49 @@
 			<key>id</key>
 			<string>2</string>
 			<key>text</key>
-			<string>This is the nice response</string>
+			<string>If you came here looking for tales of dragons and old gods, you&apos;re in the right place, but you will be lost in the labyrinth that is my mind. Here we go. We&apos;re diving in. </string>
 			<key>choices</key>
 			<array>
 				<dict>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>I love your hair</string>
+					<string>Dragons?</string>
 					<key>scene_id</key>
-					<string>6</string>
+					<string>4</string>
 				</dict>
 				<dict>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>I love your outfit</string>
+					<string>Gods?</string>
 					<key>scene_id</key>
-					<string>8</string>
+					<string>5</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
 			<key>id</key>
-			<string>1</string>
+			<string>3</string>
 			<key>text</key>
-			<string>Welcome to the story</string>
+			<string>If you came here looking for tales of dragons and old gods, you&apos;re in the right place, but you will be lost in the labyrinth that is my mind. Here we go. We&apos;re diving in. </string>
 			<key>choices</key>
 			<array>
 				<dict>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>welcome 1</string>
+					<string>Dragons?</string>
 					<key>scene_id</key>
-					<string>2</string>
+					<string>4</string>
 				</dict>
 				<dict>
 					<key>deadEnd</key>
 					<false/>
 					<key>text</key>
-					<string>welcome 2</string>
+					<string>Gods?</string>
 					<key>scene_id</key>
-					<string>8</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>6</string>
-			<key>text</key>
-			<string>This is response number 6</string>
-			<key>choices</key>
-			<array>
-				<dict>
-					<key>deadEnd</key>
-					<false/>
-					<key>text</key>
-					<string>What it do? </string>
-					<key>scene_id</key>
-					<string>7</string>
-				</dict>
-				<dict>
-					<key>deadEnd</key>
-					<false/>
-					<key>text</key>
-					<string>Dank Shit, fam</string>
-					<key>scene_id</key>
-					<string>8</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>8</string>
-			<key>text</key>
-			<string>This is a custom test</string>
-			<key>choices</key>
-			<array>
-				<dict>
-					<key>deadEnd</key>
-					<false/>
-					<key>text</key>
-					<string>idk anymore, i should probably go home</string>
-					<key>scene_id</key>
-					<string>3</string>
-				</dict>
-				<dict>
-					<key>deadEnd</key>
-					<false/>
-					<key>text</key>
-					<string>idk anymore, i should probably go home</string>
-					<key>scene_id</key>
-					<string>3</string>
-				</dict>
-				<dict>
-					<key>deadEnd</key>
-					<false/>
-					<key>text</key>
-					<string>idk anymore, i should probably go home</string>
-					<key>scene_id</key>
-					<string>3</string>
+					<string>5</string>
 				</dict>
 			</array>
 		</dict>
