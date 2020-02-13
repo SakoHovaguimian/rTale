@@ -13,7 +13,7 @@ class StoryViewController: UIViewController, Storyboarded {
     
     //MARK:- Properties
     
-    private var storyViewModel: StoryViewModel
+    private var storyViewModel: StoryViewModel!
     
     //MARK:- Views
     
@@ -185,6 +185,7 @@ class StoryViewController: UIViewController, Storyboarded {
     }
     
     @objc private func nextPartOfStoryTapped(sender: UIButton) {
+        sender.pulsate()
         self.configureStory(senderID: sender.tag)
     }
     

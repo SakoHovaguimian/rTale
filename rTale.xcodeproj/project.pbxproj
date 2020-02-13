@@ -16,6 +16,9 @@
 		3D3466F123F0889500F06AD2 /* StoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3466EC23F0874A00F06AD2 /* StoryCoordinator.swift */; };
 		3D3466F323F0D33600F06AD2 /* Scene+Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3466F223F0D33600F06AD2 /* Scene+Choice.swift */; };
 		3D3466F523F0D36E00F06AD2 /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3466F423F0D36E00F06AD2 /* UIViewController+ext.swift */; };
+		3D34F19023F50B4B0002DBAB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F18F23F50B4B0002DBAB /* SettingsCoordinator.swift */; };
+		3D34F19223F50B550002DBAB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F19123F50B550002DBAB /* SettingsViewModel.swift */; };
+		3D34F19423F50B690002DBAB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F19323F50B690002DBAB /* SettingsViewController.swift */; };
 		3D6343E523ED331500A5C2E2 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6343E323ED331500A5C2E2 /* StoryCollectionViewCell.swift */; };
 		3D6343E623ED331500A5C2E2 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6343E423ED331500A5C2E2 /* StoryCollectionViewCell.xib */; };
 		3DA6DA4523F0D6590012A576 /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6DA4423F0D6590012A576 /* ChoiceButton.swift */; };
@@ -44,6 +47,9 @@
 		3D3466EE23F0874A00F06AD2 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		3D3466F223F0D33600F06AD2 /* Scene+Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene+Choice.swift"; sourceTree = "<group>"; };
 		3D3466F423F0D36E00F06AD2 /* UIViewController+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
+		3D34F18F23F50B4B0002DBAB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		3D34F19123F50B550002DBAB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		3D34F19323F50B690002DBAB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3D6343E323ED331500A5C2E2 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D6343E423ED331500A5C2E2 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		3DA6DA4423F0D6590012A576 /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
@@ -91,6 +97,16 @@
 				3D3466ED23F0874A00F06AD2 /* StoryViewController.swift */,
 			);
 			path = StoryCoordinator;
+			sourceTree = "<group>";
+		};
+		3D34F18E23F50B350002DBAB /* SettingsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3D34F18F23F50B4B0002DBAB /* SettingsCoordinator.swift */,
+				3D34F19123F50B550002DBAB /* SettingsViewModel.swift */,
+				3D34F19323F50B690002DBAB /* SettingsViewController.swift */,
+			);
+			path = SettingsCoordinator;
 			sourceTree = "<group>";
 		};
 		3D6343E223ED32F100A5C2E2 /* StoryCollectionViewCell */ = {
@@ -167,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF9E0C223ED1857006DC5B6 /* MainCoordinator.swift */,
+				3D34F18E23F50B350002DBAB /* SettingsCoordinator */,
 				3DF9E0C423ED1874006DC5B6 /* HomeCoordinator */,
 				3D3466EB23F0871700F06AD2 /* StoryCoordinator */,
 			);
@@ -301,6 +318,7 @@
 			files = (
 				3DF9E0C323ED1857006DC5B6 /* MainCoordinator.swift in Sources */,
 				3D3466F323F0D33600F06AD2 /* Scene+Choice.swift in Sources */,
+				3D34F19423F50B690002DBAB /* SettingsViewController.swift in Sources */,
 				3DF9E0C623ED189C006DC5B6 /* HomeCoordinator.swift in Sources */,
 				3DF9E0CE23ED1E21006DC5B6 /* HomeViewModel.swift in Sources */,
 				3DF9E0A723ED17D7006DC5B6 /* AppDelegate.swift in Sources */,
@@ -311,8 +329,10 @@
 				3D3466E723F066F100F06AD2 /* String+ext.swift in Sources */,
 				3D3466EF23F0888F00F06AD2 /* StoryViewController.swift in Sources */,
 				3D3466F523F0D36E00F06AD2 /* UIViewController+ext.swift in Sources */,
+				3D34F19023F50B4B0002DBAB /* SettingsCoordinator.swift in Sources */,
 				3DF9E0C823ED18BB006DC5B6 /* HomeViewController.swift in Sources */,
 				3D3466E923F0854500F06AD2 /* User.swift in Sources */,
+				3D34F19223F50B550002DBAB /* SettingsViewModel.swift in Sources */,
 				3DF9E0CC23ED1DCC006DC5B6 /* Story.swift in Sources */,
 				3DF5305623ED3085001EE94C /* StoryTableViewCell.swift in Sources */,
 				3D3466F123F0889500F06AD2 /* StoryCoordinator.swift in Sources */,
