@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, Storyboarded {
         tv.delegate = self
         tv.dataSource = self
         tv.tableFooterView = UIView()
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
+        tv.register(UINib(nibName: SettingsTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SettingsTableViewCell.identifier)
         return tv
     }()
     
@@ -89,10 +89,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return 3
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.settingsViewModel.headerTitleForCells(section)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return self.settingsViewModel.numberOfCells(section)
     }
@@ -101,22 +97,50 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return UIView()
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = SettingsHeaderView(frame: CGRect(x: 0, y: 0, width: self.settingsTableView.frame.width, height: 50))
+        headerView.text = self.settingsViewModel.headerTitleForCells(section)
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.settingsTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = self.settingsViewModel.rowDataForCells(indexPath.section)[indexPath.row]
-        cell.backgroundColor = .clear
+        if let cell = self.settingsTableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell {
             
-        return cell
+            let text = self.settingsViewModel.rowDataForCells(indexPath.section)[indexPath.row]
+            let isOn = self.settingsViewModel.valueForSetting(text)
             
+            cell.delegate = self
+            cell.configure(text: text, isOn: isOn)
+        
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.settingsTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+extension SettingsViewController: UpdateUserDefaultsValueDelegate {
+    
+    func updateUserDefaultsValueFor(_ key: String, with value: Bool) {
+        self.settingsViewModel.updateUserDefault(for: key, with: value)
     }
     
 }

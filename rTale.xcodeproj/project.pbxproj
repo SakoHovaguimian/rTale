@@ -19,6 +19,10 @@
 		3D34F19023F50B4B0002DBAB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F18F23F50B4B0002DBAB /* SettingsCoordinator.swift */; };
 		3D34F19223F50B550002DBAB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F19123F50B550002DBAB /* SettingsViewModel.swift */; };
 		3D34F19423F50B690002DBAB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34F19323F50B690002DBAB /* SettingsViewController.swift */; };
+		3D5E3AAD23F65128009C9222 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3AAB23F65128009C9222 /* SettingsTableViewCell.swift */; };
+		3D5E3AAE23F65128009C9222 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5E3AAC23F65128009C9222 /* SettingsTableViewCell.xib */; };
+		3D5E3AB023F65303009C9222 /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3AAF23F65303009C9222 /* SettingsHeaderView.swift */; };
+		3D5E3AB323F65468009C9222 /* SettingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5E3AB223F65468009C9222 /* SettingsHeaderView.xib */; };
 		3D6343E523ED331500A5C2E2 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6343E323ED331500A5C2E2 /* StoryCollectionViewCell.swift */; };
 		3D6343E623ED331500A5C2E2 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6343E423ED331500A5C2E2 /* StoryCollectionViewCell.xib */; };
 		3DA6DA4523F0D6590012A576 /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6DA4423F0D6590012A576 /* ChoiceButton.swift */; };
@@ -50,6 +54,10 @@
 		3D34F18F23F50B4B0002DBAB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		3D34F19123F50B550002DBAB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3D34F19323F50B690002DBAB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3D5E3AAB23F65128009C9222 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		3D5E3AAC23F65128009C9222 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		3D5E3AAF23F65303009C9222 /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		3D5E3AB223F65468009C9222 /* SettingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsHeaderView.xib; sourceTree = "<group>"; };
 		3D6343E323ED331500A5C2E2 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D6343E423ED331500A5C2E2 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		3DA6DA4423F0D6590012A576 /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
@@ -107,6 +115,24 @@
 				3D34F19323F50B690002DBAB /* SettingsViewController.swift */,
 			);
 			path = SettingsCoordinator;
+			sourceTree = "<group>";
+		};
+		3D5E3AAA23F6510C009C9222 /* SettingsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3D5E3AAB23F65128009C9222 /* SettingsTableViewCell.swift */,
+				3D5E3AAC23F65128009C9222 /* SettingsTableViewCell.xib */,
+			);
+			path = SettingsTableViewCell;
+			sourceTree = "<group>";
+		};
+		3D5E3AB123F65454009C9222 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				3D5E3AAF23F65303009C9222 /* SettingsHeaderView.swift */,
+				3D5E3AB223F65468009C9222 /* SettingsHeaderView.xib */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		3D6343E223ED32F100A5C2E2 /* StoryCollectionViewCell */ = {
@@ -174,6 +200,7 @@
 		3DF9E0BE23ED1803006DC5B6 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				3D5E3AB123F65454009C9222 /* New Group */,
 				3DA6DA4423F0D6590012A576 /* ChoiceButton.swift */,
 			);
 			path = Subclasses;
@@ -193,6 +220,7 @@
 		3DF9E0C023ED182B006DC5B6 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				3D5E3AAA23F6510C009C9222 /* SettingsTableViewCell */,
 				3DF5305823ED30A7001EE94C /* StoryTableViewCell */,
 			);
 			path = Xibs;
@@ -300,10 +328,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5E3AAE23F65128009C9222 /* SettingsTableViewCell.xib in Resources */,
 				3DA6DA4723F0F63F0012A576 /* story_1.plist in Resources */,
 				3D6343E623ED331500A5C2E2 /* StoryCollectionViewCell.xib in Resources */,
 				3DF9E0B323ED17D9006DC5B6 /* LaunchScreen.storyboard in Resources */,
 				3DF5305723ED3085001EE94C /* StoryTableViewCell.xib in Resources */,
+				3D5E3AB323F65468009C9222 /* SettingsHeaderView.xib in Resources */,
 				3DF9E0B023ED17D9006DC5B6 /* Assets.xcassets in Resources */,
 				3D3466E223F065F200F06AD2 /* PressStart2P-vaV7.ttf in Resources */,
 			);
@@ -317,11 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF9E0C323ED1857006DC5B6 /* MainCoordinator.swift in Sources */,
+				3D5E3AB023F65303009C9222 /* SettingsHeaderView.swift in Sources */,
 				3D3466F323F0D33600F06AD2 /* Scene+Choice.swift in Sources */,
 				3D34F19423F50B690002DBAB /* SettingsViewController.swift in Sources */,
 				3DF9E0C623ED189C006DC5B6 /* HomeCoordinator.swift in Sources */,
 				3DF9E0CE23ED1E21006DC5B6 /* HomeViewModel.swift in Sources */,
 				3DF9E0A723ED17D7006DC5B6 /* AppDelegate.swift in Sources */,
+				3D5E3AAD23F65128009C9222 /* SettingsTableViewCell.swift in Sources */,
 				3D6343E523ED331500A5C2E2 /* StoryCollectionViewCell.swift in Sources */,
 				3DF9E0A923ED17D7006DC5B6 /* SceneDelegate.swift in Sources */,
 				3D3466F023F0889200F06AD2 /* StoryViewModel.swift in Sources */,

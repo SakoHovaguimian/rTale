@@ -11,6 +11,7 @@ protocol DismissSettingsVCDelegate: class {
 }
 
 import UIKit
+import Animo
 
 class SettingsViewModel {
     
@@ -50,6 +51,21 @@ class SettingsViewModel {
             case 2: return ["Brightness"]
             default: return [ "Power Saver Mode"]
         }
+        
+    }
+    
+    public func valueForSetting(_ key: String) -> Bool {
+        
+        let userDefaults = UserDefaults.standard
+        return userDefaults.bool(forKey: key)
+        
+    }
+    
+    public func updateUserDefault(for key: String, with value: Bool) {
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(value, forKey: key)
+        logSuccess("Set \(value) for \(key)")
         
     }
     
