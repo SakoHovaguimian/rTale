@@ -25,6 +25,8 @@ class MainCoordinator: Coordinator {
         let homeCoord = HomeCoordinator(navigationController: nc)
         
         homeCoord.delegate = self
+        homeCoord.settingsDelegate = self
+        
         homeCoord.start()
         
         self.navigationController.present(nc, animated: false, completion: nil)
@@ -51,7 +53,34 @@ extension MainCoordinator: PresentStoryCoordDelegate {
         self.childCoordinators.append(storyCoord)
         
     }
+    
+}
 
+extension MainCoordinator: PresentSettingsPageDelegate {
+    
+    func presentSettingsPage() {
+        
+        let nc = UINavigationController()
+        let settingsCorrd = SettingsCoordinator(navigationController: nc)
+        
+        settingsCorrd.start()
+        settingsCorrd.dismissDelegate = self
+        
+        self.childCoordinators.last?.navigationController.present(nc, animated: true, completion: nil)
+        
+        self.childCoordinators.append(settingsCorrd)
+        
+    }
+    
+}
+
+extension MainCoordinator: DismissSettingsCoordinatorDelegate {
+    
+    func dismissSettingsCoord() {
+        self.childCoordinators.last?.navigationController.dismiss(animated: true, completion: nil)
+        self.childCoordinators.removeLast()
+    }
+    
 }
 
 extension MainCoordinator: DismissStoryCoordDelegate {

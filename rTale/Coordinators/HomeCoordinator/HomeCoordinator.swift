@@ -13,9 +13,14 @@ protocol PresentStoryCoordDelegate: class {
     func presentStoryPage(story: Story)
 }
 
+protocol PresentSettingsPageDelegate: class {
+    func presentSettingsPage()
+}
+
 class HomeCoordinator: Coordinator {
     
     weak var delegate: PresentStoryCoordDelegate!
+    weak var settingsDelegate: PresentSettingsPageDelegate!
     
     var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
@@ -44,12 +49,7 @@ class HomeCoordinator: Coordinator {
 extension HomeCoordinator: PushSettingsPageDelegate {
     
     func pushSettingsPage(index: Int) {
-        
-        let testVC = UIViewController()
-        testVC.view.backgroundColor = index == 0 ? .purplishBlack : .secondarySystemGroupedBackground
-        
-        self.navigationController.present(testVC, animated: true)
-        
+        self.settingsDelegate.presentSettingsPage()
     }
     
 }

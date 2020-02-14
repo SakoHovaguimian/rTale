@@ -13,26 +13,9 @@ class StoryViewController: UIViewController, Storyboarded {
     
     //MARK:- Properties
     
-    private var storyViewModel: StoryViewModel
+    private var storyViewModel: StoryViewModel!
     
     //MARK:- Views
-    
-    private lazy var storyView: UIView = {
-        
-        let myView = UIView()
-        myView.backgroundColor = .eggShell
-        myView.clipsToBounds = true
-        myView.layer.cornerRadius = 23
-        
-        myView.addSubview(self.storyLabel)
-        
-        self.storyLabel.centerX(inView: myView)
-        self.storyLabel.anchor(top: myView.topAnchor, paddingTop: 20, width: 300)
-        
-        
-        return myView
-            
-    }()
     
     private var storyLabel: UILabel = {
         let label = UILabel()
@@ -109,6 +92,28 @@ class StoryViewController: UIViewController, Storyboarded {
         return label
     }()
     
+    private lazy var storyView: UIView = {
+        
+        let myView = UIView()
+        myView.backgroundColor = .eggShell
+        myView.clipsToBounds = true
+        myView.layer.cornerRadius = 23
+        
+        myView.addSubview(self.storyLabel)
+        
+        self.storyLabel.centerX(inView: myView)
+        self.storyLabel.anchor(top: myView.topAnchor,
+                               left: myView.leftAnchor,
+                               right: myView.rightAnchor,
+                               paddingTop: 20,
+                               paddingLeft: 20,
+                               paddingRight: 20)
+        
+        
+        return myView
+            
+    }()
+    
     private lazy var statusBarView: UIView = {
         let statusView = UIView()
         statusView.backgroundColor = .eggShell
@@ -180,6 +185,7 @@ class StoryViewController: UIViewController, Storyboarded {
     }
     
     @objc private func nextPartOfStoryTapped(sender: UIButton) {
+        sender.pulsate()
         self.configureStory(senderID: sender.tag)
     }
     
