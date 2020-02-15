@@ -185,7 +185,7 @@ class StoryViewController: UIViewController, Storyboarded {
     }
     
     @objc private func nextPartOfStoryTapped(sender: UIButton) {
-        sender.pulsate()
+        sender.customPulsate(duration: 40.0, autoReverse: true, repeatCount: 100)
         self.configureStory(senderID: sender.tag)
     }
     
@@ -249,7 +249,18 @@ class StoryViewController: UIViewController, Storyboarded {
 
     }
     
+    private func deadEnd() {
+        
+        self.showSimpleError(title: "Dead-End", message: "You've reached a dead end. Please try again, and may the odds be ever in your favor")
+        self.numnberOfChoices(choices: [
+            "Start"
+        ])
+        
+    }
+    
     private func configureStory(senderID: Int = 0) {
+        
+        self.choicesStackView.isUserInteractionEnabled = false
         
         if let health = self.storyViewModel.currentScene?.choices?[senderID].health {
             
@@ -268,13 +279,30 @@ class StoryViewController: UIViewController, Storyboarded {
             
         }
         
-        self.storyViewModel.runloop(label: self.storyLabel, senderID: senderID)
-               
-        if let choices = self.storyViewModel.currentScene?.choices?.map({ $0.text}) {
-           
-            self.numnberOfChoices(choices: choices)
-           
-       }
+        self.storyViewModel.runloop(label: self.storyLabel, senderID: senderID) {
+            
+            if let button = self.choicesStackView.arrangedSubviews[senderID] as? UIButton {
+                button.layer.removeAllAnimations()
+            }
+            
+             guard self.storyViewModel.currentScene?.text != nil else {
+                self.deadEnd()
+                self.choicesStackView.isUserInteractionEnabled = true
+                return
+             }
+                    
+             if let choices = self.storyViewModel.currentScene?.choices?.map({ $0.text}) {
+                
+                UIView.animate(withDuration: 0.3, delay: 0.0, options: .transitionCrossDissolve, animations: {
+                     self.numnberOfChoices(choices: choices)
+                })
+                
+            }
+            
+            self.choicesStackView.isUserInteractionEnabled = true
+            
+        }
+        
     }
     
 }

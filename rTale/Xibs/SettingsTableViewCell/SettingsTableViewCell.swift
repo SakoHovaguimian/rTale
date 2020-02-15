@@ -23,6 +23,7 @@ class SettingsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.configureToggleSwitch()
+
     }
     
     private func configureToggleSwitch() {

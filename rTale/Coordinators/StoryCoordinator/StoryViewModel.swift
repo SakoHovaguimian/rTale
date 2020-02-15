@@ -35,7 +35,7 @@ class StoryViewModel {
         self.dimissDelegate.dimissStoryVC()
     }
     
-    func runloop(label: UILabel, senderID: Int) {
+    func runloop(label: UILabel, senderID: Int, completion: @escaping () -> ()) {
         
         if self.currentScene == nil {
             self.currentScene = self.story?.scenes[0]
@@ -45,12 +45,18 @@ class StoryViewModel {
         
         let text = self.currentScene?.text
             
-        guard self.inGuard == false else { return }
+        guard self.inGuard == false else { completion(); return }
         
         self.inGuard = true
         
         label.text = ""
         label.sizeToFit()
+        
+        guard text?.isEmpty == false else {
+            self.inGuard = false
+            completion()
+            return
+        }
         
         outerLoop: for i in text! {
 
@@ -69,6 +75,7 @@ class StoryViewModel {
         }
         
         self.inGuard = false
+        completion()
         
     }
     
