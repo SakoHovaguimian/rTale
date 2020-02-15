@@ -18,6 +18,7 @@ enum Genre: Int, CaseIterable, Codable {
 class Story: Codable {
     
     var storyID: String
+    var progress: Float = 0.5
     var title: String
     var author: String
     var genre: Genre
@@ -30,6 +31,7 @@ class Story: Codable {
         self.author = author
         self.genre = genre
         self.imageURL = imageURL
+        self.progress = Float.random(in: 0...1.0)
     }
     
     private enum CodingKeys: String, CodingKey {

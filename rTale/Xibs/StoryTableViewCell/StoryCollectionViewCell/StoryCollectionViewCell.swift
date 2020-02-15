@@ -20,6 +20,8 @@ class StoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var storyImageView: UIImageView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +36,9 @@ class StoryCollectionViewCell: UICollectionViewCell {
         
         self.titleLabel.text = story.title
         self.storyImageView.image = UIImage(named: story.imageURL)
+        
+        self.progressBar.setProgress(story.progress, animated: true)
+        self.progressBar.progressTintColor = .imgurGreen
         
     }
     
