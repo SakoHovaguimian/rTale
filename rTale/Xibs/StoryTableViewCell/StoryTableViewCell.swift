@@ -12,11 +12,16 @@ protocol PassChosenStoryDelegate: class {
     func passChosenStory(_ story: Story)
 }
 
+protocol UpdateStoryProgressToVcDelegate: class {
+    func updateStoryProgressToVC(_ story: Story)
+}
+
 class StoryTableViewCell: UITableViewCell {
     
     static let identifier = "StoryTableViewCell"
     
     weak var delegate: PassChosenStoryDelegate!
+    weak var updateStoryDelegate: UpdateStoryProgressToVcDelegate!
     
     //MARK:- Properties
     
@@ -66,6 +71,7 @@ extension StoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.identifier, for: indexPath) as? StoryCollectionViewCell {
 
             cell.story = self.stories[indexPath.row]
+            cell.delegate = self
     
             return cell
         }
@@ -80,6 +86,14 @@ extension StoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.delegate.passChosenStory(self.stories[indexPath.row])
+    }
+    
+}
+
+extension StoryTableViewCell: UpdateStoryProgressDelegate {
+    
+    func updateStoryProgress(_ story: Story) {
+        self.updateStoryDelegate.updateStoryProgressToVC(story)
     }
     
     

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UpdateStoryProgressDelegate: class {
+    func updateStoryProgress(_ story: Story)
+}
+
 class StoryCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "StoryCollectionViewCell"
@@ -17,6 +21,8 @@ class StoryCollectionViewCell: UICollectionViewCell {
             self.configure()
         }
     }
+    
+    weak var delegate: UpdateStoryProgressDelegate!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var storyImageView: UIImageView!
@@ -28,6 +34,9 @@ class StoryCollectionViewCell: UICollectionViewCell {
     
         self.configureViews()
         
+    }
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        self.delegate.updateStoryProgress(story!)
     }
     
     private func configure() {

@@ -15,6 +15,8 @@ protocol DismissSettingsCoordinatorDelegate: class {
 
 class SettingsCoordinator: Coordinator {
     
+    var stories = [Story]()
+    
     weak var dismissDelegate: DismissSettingsCoordinatorDelegate!
     
     var childCoordinators: [Coordinator]
@@ -27,7 +29,7 @@ class SettingsCoordinator: Coordinator {
     
     func start() {
         
-        let viewModel = SettingsViewModel()
+        let viewModel = SettingsViewModel(stories: self.stories)
         viewModel.dismissDelegate = self
         
         let homeVC = SettingsViewController(viewModel: viewModel)
@@ -42,7 +44,7 @@ class SettingsCoordinator: Coordinator {
 
 extension SettingsCoordinator: DismissSettingsVCDelegate {
     
-    func dismissSettingsVC() {
+    func dismissSettingsVC(stories: [Story]) {
         self.dismissDelegate.dismissSettingsCoord()
     }
     

@@ -32,6 +32,7 @@ class StoryViewController: UIViewController, Storyboarded {
         let stackView = UIStackView()
         stackView.spacing = 12
         stackView.axis = .vertical
+        stackView.alignment = .top
         stackView.distribution = .fill
         return stackView
     }()
@@ -203,6 +204,12 @@ class StoryViewController: UIViewController, Storyboarded {
         self.view.addSubview(self.closeButton)
         self.closeButton.anchor(top: self.view.safeAreaLayoutGuide.topAnchor, right: self.view.rightAnchor, paddingTop: 16, paddingRight: 16, width: 100, height: 32)
         
+        //Status Bar View
+        self.view.addSubview(self.statusBarView)
+        
+        self.statusBarView.anchor(left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, height: 60)
+        
+        
         //Story View
         self.view.addSubview(self.storyView)
         self.storyView.anchor(top: self.closeButton.topAnchor ,left: self.view.leftAnchor, right: self.view.rightAnchor, paddingTop: 64, paddingLeft: 32, paddingRight: 32, height: 350)
@@ -210,18 +217,15 @@ class StoryViewController: UIViewController, Storyboarded {
         
         //Choices Stack View
         self.view.addSubview(self.choicesStackView)
-        self.choicesStackView.anchor(top: self.storyView.bottomAnchor,
+        self.choicesStackView.anchor(
                               left: self.view.leftAnchor,
+                              bottom: self.statusBarView.topAnchor,
                               right: self.view.rightAnchor,
-                              paddingTop: 130,
+                              //paddingTop: 130,
+                           // top: self.storyView.bottomAnchor
                               paddingLeft: 32,
+                              paddingBottom: 32,
                               paddingRight: 32)
-        
-        //Status Bar View
-        self.view.addSubview(self.statusBarView)
-        
-        self.statusBarView.anchor(left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, height: 60)
-        
         
     }
     
@@ -246,6 +250,16 @@ class StoryViewController: UIViewController, Storyboarded {
             tag += 1
                         
         }
+        
+        self.choicesStackView.anchor(
+                              left: self.view.leftAnchor,
+                              bottom: self.statusBarView.topAnchor,
+                              right: self.view.rightAnchor,
+                              //paddingTop: 130,
+                           // top: self.storyView.bottomAnchor
+                              paddingLeft: 32,
+                              paddingBottom: self.choicesStackView.arrangedSubviews.count < 2 ? 128 : 32,
+                              paddingRight: 32)
 
     }
     

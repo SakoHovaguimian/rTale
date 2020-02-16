@@ -7,7 +7,7 @@
 //
 
 protocol DismissSettingsVCDelegate: class {
-    func dismissSettingsVC()
+    func dismissSettingsVC(stories: [Story])
 }
 
 import UIKit
@@ -15,10 +15,16 @@ import Animo
 
 class SettingsViewModel {
     
+    var stories: [Story]
+    
     weak var dismissDelegate: DismissSettingsVCDelegate!
     
+    init(stories: [Story]) {
+        self.stories = stories
+    }
+    
     public func handleDismissSettingsCoord() {
-        self.dismissDelegate.dismissSettingsVC()
+        self.dismissDelegate.dismissSettingsVC(stories: self.stories)
     }
     
     public func numberOfCells(_ section: Int) -> Int {
@@ -52,6 +58,10 @@ class SettingsViewModel {
             default: return [ "Power Saver Mode"]
         }
         
+    }
+    
+    public func resetProgress(index: Int) {
+        self.stories[index].progress = 0
     }
     
     public func valueForSetting(_ key: String) -> Bool {

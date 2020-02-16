@@ -48,7 +48,7 @@ class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator: PushSettingsPageDelegate {
     
-    func pushSettingsPage(index: Int) {
+    func pushSettingsPage() {
         self.settingsDelegate.presentSettingsPage()
     }
     

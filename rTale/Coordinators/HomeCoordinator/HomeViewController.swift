@@ -55,6 +55,11 @@ class HomeViewController: UIViewController, Storyboarded {
         self.view.backgroundColor = .black
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.homeTableView?.reloadData()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -121,7 +126,7 @@ class HomeViewController: UIViewController, Storyboarded {
     //MARK:- Objc Functions
     
     @objc private func settingsButtonTapped(sender: UIButton) {
-        self.homeViewModel.handleSettingsPageTapped(index: sender.tag)
+        self.homeViewModel.handleSettingsPageTapped()
     }
 }
 
@@ -147,6 +152,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.stories = stories
             cell.delegate = self
+            cell.updateStoryDelegate = self
             return cell
             
         }
@@ -166,6 +172,15 @@ extension HomeViewController: PassChosenStoryDelegate {
     
     func passChosenStory(_ story: Story) {
         self.homeViewModel.handleStoryTapped(story: story)
+    }
+
+}
+
+extension HomeViewController: UpdateStoryProgressToVcDelegate {
+    
+    func updateStoryProgressToVC(_ story: Story) {
+        self.homeViewModel.updateStories(with: story)
+        self.homeTableView?.reloadData()
     }
 
 }
